@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontendmu
+  name: frontendmu
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontendmu
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontendmu
+    spec:
+      containers:
+      - image: xelab04/frontendmu:1.0
+        name: frontendmu
+
+        ports:
+        - containerPort: 80
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+status: {}
